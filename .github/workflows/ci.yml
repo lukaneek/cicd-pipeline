@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
     - name: Login Dockerhub 
       env:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
@@ -19,10 +19,8 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Build the Docker image
-      run: docker build -t cicd-pipeline:latest .
+      run: docker build -t cicd-pipeline .
     - name: list the Docker images
       run: docker image ls -a
-    - name: retag the Docker images
-      run: docker tag cicd-pipeline:latest cicd-pipeline:lukaneek/cicd-pipeline:latest
     - name: Push to Dockerhub
       run: docker push lukaneek/cicd-pipeline:latest
