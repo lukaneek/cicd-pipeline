@@ -16,7 +16,7 @@ jobs:
     - name: Pull docker image
       run: docker pull lukaneek/cicd-pipeline:latest
     - name: Delete old docker container
-      run: docker rm -f cicd-pipeline-container || true
+      run: docker rm -f cicd-pipeline || true
     - name: Run docker container
-      run: docker run -d -p 8080:8080 --name cicd-pipeline-container lukaneek/cicd-pipeline
+      run: docker run -d -p 8080:8080 --name cicd-pipeline lukaneek/cicd-pipeline
       
