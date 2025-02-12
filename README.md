@@ -14,4 +14,4 @@
 
 7. add secrets to github
 
-8. add a repository into dockerhub this is where all the images will be kept for the github repository code.  Name the dockhub reposiotry the same as the github repository.  
+8. add a repository into dockerhub this is where all the images will be kept for the github repository code.  Name the dockhub reposiotry the same as the github repository .  
