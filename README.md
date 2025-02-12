@@ -40,7 +40,7 @@ next steps are with this video https://www.youtube.com/watch?v=BDGTIM8fTUc
 
 17. create cd.yml
 
-18. install docker on ec2 instance.  first step type in  cd ~ to get to base directory.  follow steps 1, 2 and 3 on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+18. install docker on ec2 instance.  first step type in  cd ~ to get to base directory.  follow steps 1, 2 and 3 on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository .
 
 
 
