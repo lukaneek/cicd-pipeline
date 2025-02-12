@@ -20,7 +20,5 @@ jobs:
 
     - name: Build the Docker image
       run: docker build -t lukaneek/cicd-pipeline:latest .
-    - name: list the Docker images
-      run: docker image ls -a
     - name: Push to Dockerhub
       run: docker push lukaneek/cicd-pipeline:latest
