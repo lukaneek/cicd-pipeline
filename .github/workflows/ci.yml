@@ -22,5 +22,7 @@ jobs:
       run: docker build -t cicd-pipeline:latest .
     - name: list the Docker images
       run: docker image ls -a
+    - name: retag the Docker images
+      run: docker tag cicd-pipeline:latest cicd-pipeline:lukaneek/cicd-pipeline:latest
     - name: Push to Dockerhub
       run: docker push lukaneek/cicd-pipeline:latest
