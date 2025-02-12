@@ -19,9 +19,7 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Build the Docker image
-      run: docker build -t cicd-pipeline .
-    - name: tag the Docker image
-      run: docker tag cicd-pipeline:latest lukaneek/cicd-pipeline:latest
+      run: docker build -t lukaneek/cicd-pipeline:latest .
     - name: list the Docker images
       run: docker image ls -a
     - name: Push to Dockerhub
