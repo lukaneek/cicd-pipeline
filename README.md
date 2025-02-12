@@ -9,3 +9,9 @@
 4. https://medium.com/@muhammadnaqeeb/dockerizing-a-node-js-and-express-js-app-9cb31cf9139e (Link for setting up project and docker hub)
 
 5. git add . || git commit -m "message" || git push || to pull the latest code use git pull
+
+6. create ci.yml file 
+
+7. add secrets to github
+
+8. add a repository into dockerhub this is where all the images will be kept for the github repository code.  Name the dockhub reposiotry the same as the github repository.  
