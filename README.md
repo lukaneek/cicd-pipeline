@@ -81,6 +81,8 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 37. restart nginx to apply the changes.  
 
+38. open a new tab and enter your public ipv4 url.  You should see it work after that.  
+
 
 
 
