@@ -1,46 +1,60 @@
 # cicd-pipeline
 
-1. create new repository in github with a read me
+1. In Github (code repository), manually create a new repository in Github with a read me file.
 
-2. update and check in read me file in github.
+2. In Github, manually update and check in the read me file.
 
-3. go to c:/code and then type git clone github https link. This will create a new folder with the repository name. cd into that repository name.  Make sure docker desktop is running
+3. On your file system, go to c:\code to clone the repository. Type: 'git clone <github https link>'. This will create a new folder in the c:\code directory with the repository name and the updated read me file. cd into that repository name.
+  
+6. Follow the following link to 1. create a Docker Hub (docker image repository) account and install Docker Desktop on your system (Both only needs to be done once) and 2. to create a simple node/express application and to check into your new repository.
+   a. https://medium.com/@muhammadnaqeeb/dockerizing-a-node-js-and-express-js-app-9cb31cf9139e
 
-4. https://medium.com/@muhammadnaqeeb/dockerizing-a-node-js-and-express-js-app-9cb31cf9139e (Link for setting up project and docker hub)
+7. git add . || git commit -m "message" || git push || to pull the latest code use git pull
 
-5. git add . || git commit -m "message" || git push || to pull the latest code use git pull
+8. Make sure Docker Desktop is running. Docker Desktop allows you to execute your Docker image, that is your code, in your local enviroment.
 
-next steps are with this video https://www.youtube.com/watch?v=BDGTIM8fTUc
+The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8fTUc
 
-6. create ci.yml file 
+6. Open VSCode, open the diretory where the new repository is (from the c:\code\<new repository>\) type, 'code .'
 
-7. add secrets to github
+8. In VSCode, in the base directory create a new folder called '.github/workflows'. Create a new file in that directory called: ci.yml
 
-8. add a repository into dockerhub this is where all the images will be kept for the github repository code.  Name the dockhub reposiotry the same as the github repository .  
+9. In this file you will 1. Login to your Docker Hub, 2. Build the Docker image and 3. Push the newly created image to your Docker Hub repository.
 
-9. update the read me file and check in the code.  Github should run the ci yml and build and push the image to dockerhub.  
+10. Add the secrets (Docker Hub username and password to your Docker Hub account) to Github.
 
-10. login to aws and create an ec2 instance.  Name the ec2 instance same as the guthub repository.  
+11. Add a repository into your Docker Hub account. This is where all of your Docker images will be kept. Name the new Docker Hub repository the same name as the Github repository.  
 
-11. when creating the instane create a new key pair for access to this ec2 instance.  Name the key pair same as github repository.  Use default setting and click create key pair button.  
+12. To test the ci.yml Github action, update the read me file and check in the code. Github should run the ci.yml and build and push the Docker image to your Docker Hub account in your Docker Hub repository.  
 
-12. when creating the ec2 instance, allow all traffic options when creating fire wall security group.  and click launch instance button.  This should start the ec2 instance.
+13. Login to AWS and create an EC2 instance. An EC2 instance is virtual server in Amazon's Elastic Compute Cloud (EC2), which  is a service that allows users to rent virtual computer. Name the EC2 instance same as the Guthub repository.  
 
-12. the private key has been generated and downloaded in the dowloads folder.  Copy the private key and move it to c:/privateKeys directory.  
+14. When creating the EC2 instance, create a new Key Pair that will give you access to this EC2 instance. Name the Key Pair the same as the Github repository. Use default settings and click the Create Key Pair button.  
 
-13. right click on the pem file, click properties, security, advanced, disable inferitince, delete all permissions.  Click add button, click select princible, then in the text area add lukaneek@gmail.com and give full access.  
+16. The private key of the pair has been generated and downloaded in your Downloads folder. Copy the private key and move it to your c:\privateKeys directory. The public key remains with the EC2 instance in AWS. 
 
-13. cd into the privateKeys directory, enter (ssh -i "cicd-pipeline.pem" ubuntu@ec2-3-16-70-222.us-east-2.compute.amazonaws.com) in command line to login.  we have now logged into our ec2 instance
+12. When continuing to create the EC2 instance, allow all traffic options when creating the firewall security group. To complete the EC2 instance, click the Launch Instance button.  This should start the EC2 instance.
 
-14. to update the lastest and greatest on the ec2 instance type in sudo su, then sudo apt update, sudo apt-get upgrade -y.  This will update the ec2 instance. 
+13. In the c:\privatekeys directory, right click on the newly created .pem file; click properties, security, advanced and 1. Click the Disable inheritance button, 2. Delete all other permissions, 3. Click the Add button, 4. Click Select Principle, 5. In the text area add lukaneek@gmail.com and give full access. This will give your private key the proper permissions to access your EC2 instance in AWS.
 
-15. next you create a runner in github.  these commands will be copied over to our ec2 instance.  go to github, settings, action, runners, click on the create self-hosted runner button.  chose linix as the runner image.  Copy and paste each command in download section and paste into ec2 instance.  
+13. In the same c:\privatekeys directory, enter (as an example) 'ssh -i "cicd-pipeline.pem" ubuntu@ec2-3-16-70-222.us-east-2.compute.amazonaws.com' to login into your EC2 instance.
 
-16. when you get to configure, to get the first command to work you have to first execute export RUNNER_ALLOW_RUNASROOT="1" command on the ec2 instance.  then copy the first configure command and add RUNNER_ALLOW_RUNASROOT="1" to the start of it.  then run it.  finally you can execute the run.sh command.  
+14. Once logged into your new EC2 instance you want to update the latest libraries on the instance. This is only done one time; Type: 'sudo su', then 'sudo apt update', and finally 'sudo apt-get upgrade -y'. This will update the ec2 instance with the latest libraries that it was created with.
 
-17. create cd.yml
+15. On your EC2 instance type: 'cd ~' to get to the base directory.
 
-18. install docker on ec2 instance.  first step type in  cd ~ to get to base directory.  follow steps 1, 2 and 3 on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository .
+16. Your EC2 instance needs two different libraries installed on it. This is only done one time; 1. Github self-hosted runner application to download the GitHub action CD.yml and run it. 2. Docker, to run the docker image, your code, in the docker container.
+
+17. In Github, create a self-hosted Runner. Go to Github, Settings, Action, Runners. Click the Create self-hosted Runner button. Chose Linix as the runner image (its what our EC2 instance uses) Copy and paste each command in the Download section and paste in the EC2 instance.
+    a. A Github runner is a machine that executes jobs in the Github workflow. Our EC2 instance will be that machine. A self-hosted runner connects to Github to receive job assignments. The self-hosted runner uses an HTTPS long poll that opens a connection to Github for 50 seconds, and if no response is received, it then timesout and creates a new long poll. The runner app must be running on the machine to accept and run Github actions.
+
+19. In Github, the self-hosted runner commands will be copied over to our EC2 instance and executed.  go to github, settings, action, runners, click on the create self-hosted runner button.  chose linix as the runner image.  Copy and paste each command in download section and paste into ec2 instance.  
+
+20. when you get to configure, to get the first command to work you have to first execute export RUNNER_ALLOW_RUNASROOT="1" command on the ec2 instance.  then copy the first configure command and add RUNNER_ALLOW_RUNASROOT="1" to the start of it.  then run it.  finally you can execute the run.sh command.  
+
+21. create cd.yml
+
+22. install docker on ec2 instance.  first step type in  cd ~ to get to base directory.  follow steps 1, 2 and 3 on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository .
 
 
 
