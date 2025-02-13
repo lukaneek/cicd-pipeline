@@ -60,6 +60,29 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 28. Checking in code in Github should trigger the CI/CD pipeline and have your latest code running on your EC2 instance.
 
+29. On the ec2 instance text to see if the request works.  Once you get the succeed message use 'sudo docker ps' to see the docker image running.  Then type 'curl 0.0.0.0:8080'. This should return you "hello world". 
+
+30. now you have to install nginx for reverse proxy.  Type 'cd ~' to get to base directory, then type 'sudo apt install nginx' to install nginx.  
+
+31. get the docker container id by typing 'docker ps'.
+
+31. Use this to find the private ip address of the docker container and put it in the terminal. sudo docker inspect -f \
+'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>. 
+
+32. The output should be your private docker container ip address. 
+
+33. cd /etc/nginx/sites-available/ 
+
+34. copy the IP address 
+
+35. sudo nano default
+
+36. Navigate to locations section and enter in 'proxy_pass http://<ip address>:8080;' then save and exit file.  
+
+37. restart nginx to apply the changes.  
+
+
+
 
 
 
