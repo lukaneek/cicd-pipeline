@@ -81,7 +81,11 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 38. Restart nginx to apply the changes.  
 
-39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world". 
+39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world".
+
+EXTRAS:
+At this point you can use your browser to reach your application (running on EC2) by using Amazon's lengthy IPV4 address. No one will remember that. What should happen is that you want to connect an easliy rememberable Domain Name (ie, lukavujasin.tech) to point to your EC2 instance automatically. Follow the directions here on how to do it: https://www.freecodecamp.org/news/how-to-connect-a-domain-to-a-website-hosted-on-aws-ec2/
+
 
 
 
