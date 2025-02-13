@@ -52,36 +52,40 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 24. In VSCode, create the cd.yml file. When code is checked in to GitHub the ci.yml file will run and after it is complete this cd.yml file will run. The EC2 instance, acting as a self hosted runner will download the cd.yml file and 1. Pull the Docker Image from your Docker Hub account and repository, 2. Delete the Old Docker container running on the EC2 instance in the Docker you installed, 3. Run the new Docker image that was just pulled on the EC2 instance in the Docker you installed.
 
-25. On your EC2 instance stop the action runner.  Then type: 'cd ~' to get to the base directory.
+25. On your EC2 instance stop the action runner. Type: 'cd ~' to get to the base directory.
     
 26. Install Docker on the EC2 instance. Follow steps 1, 2 and 3 in the "Install using the apt repository" section on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository.
 
-27. Start the action runner by cd action-runner and ./run.sh.
+27. Start the action runner by changing directories and running the runner 'cd action-runner' and './run.sh'.
 
 28. Checking in code in Github should trigger the CI/CD pipeline and have your latest code running on your EC2 instance.
 
-29. On the ec2 instance text to see if the request works.  Once you get the succeed message use 'sudo docker ps' to see the docker image running.  Then type 'curl 0.0.0.0:8080'. This should return you "hello world". 
+29. On the EC2 instance, test to see if the request works. Once you get the success message that the new image has been download and running, use 'sudo docker ps' to see the docker image running. Type 'curl 0.0.0.0:8080' to see the response from your program. i.e., "hello world". 
 
-30. now you have to install nginx for reverse proxy.  Type 'cd ~' to get to base directory, then type 'sudo apt install nginx' to install nginx.  
+30. Now you have to install nginx for a reverse proxy. Type 'cd ~' to get to base directory, then type 'sudo apt install nginx' to install nginx.  
 
-31. get the docker container id by typing 'docker ps'.
+31. Get the docker container id by typing 'docker ps'.
 
-31. Use this to find the private ip address of the docker container and put it in the terminal. sudo docker inspect -f \
-'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>. 
+32. The following command will retrieve the private ip address of the docker container. 'sudo docker inspect -f \
+'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>'. 
 
-32. The output should be your private docker container ip address. 
+33. The output should be your private docker container ip address. 
 
-33. cd /etc/nginx/sites-available/ 
+34. To edit the default nginx configuration file change diretory to the following: 'cd /etc/nginx/sites-available/' 
 
-34. copy the IP address 
+35. Copy the IP address of your docker container.  
 
-35. sudo nano default
+36. Edit the default nginx configuration file: 'sudo nano default'
 
-36. Navigate to locations section and enter in 'proxy_pass http://<ip address>:8080;' then save and exit file.  
+37. Navigate to the location section and enter the following: 'proxy_pass http://<ip address>:8080;' then save and exit file.  
 
-37. restart nginx to apply the changes.  
+38. Restart nginx to apply the changes.  
 
-38. open a new tab and enter your public ipv4 url.  You should see it work after that.  
+39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world".
+
+EXTRAS:
+At this point you can use your browser to reach your application (running on EC2) by using Amazon's lengthy IPV4 address. No one will remember that. What should happen is that you want to connect an easliy rememberable Domain Name (ie, lukavujasin.tech) to point to your EC2 instance automatically. Follow the directions here on how to do it: https://www.freecodecamp.org/news/how-to-connect-a-domain-to-a-website-hosted-on-aws-ec2/
+
 
 
 
