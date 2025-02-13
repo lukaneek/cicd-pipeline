@@ -52,11 +52,13 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 24. In VSCode, create the cd.yml file. When code is checked in to GitHub the ci.yml file will run and after it is complete this cd.yml file will run. The EC2 instance, acting as a self hosted runner will download the cd.yml file and 1. Pull the Docker Image from your Docker Hub account and repository, 2. Delete the Old Docker container running on the EC2 instance in the Docker you installed, 3. Run the new Docker image that was just pulled on the EC2 instance in the Docker you installed.
 
-25. On your EC2 instance type: 'cd ~' to get to the base directory.
+25. On your EC2 instance stop the action runner.  Then type: 'cd ~' to get to the base directory.
     
 26. Install Docker on the EC2 instance. Follow steps 1, 2 and 3 in the "Install using the apt repository" section on this page https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository.
 
-27. Checking in code in Github should trigger the CI/CD pipeline and have your latest code running on your EC2 instance.
+27. Start the action runner by cd action-runner and ./run.sh.
+
+28. Checking in code in Github should trigger the CI/CD pipeline and have your latest code running on your EC2 instance.
 
 
 
