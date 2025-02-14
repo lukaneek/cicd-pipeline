@@ -50,6 +50,9 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 23. Before when you copy and past commands from the Runner Configure section, to get the first command to work you have to first execute 'export RUNNER_ALLOW_RUNASROOT="1"' command on the EC2 instance. Then copy the first Configure section command and add 'RUNNER_ALLOW_RUNASROOT="1"' to the start of the command. Run the command. Finally, you can execute the './run.sh' command to start the runner application. This will allow you see the output running when you check code into Github. Run './svc.sh' to run the runner application as a service so whenever the server restarts the runner application will restart.
 
+24. In order to have the runner application continue to run, set up the runner service.  first install the service with user as root by typing './svc.sh install root'.  Next run the service by typing './svc.sh start'.
+Note: When logging into the EC2, If any work needs to be done on the runner application you must be a super user and to become a super user type 'sudo su'.
+
 24. In VSCode, create the cd.yml file. When code is checked in to GitHub the ci.yml file will run and after it is complete this cd.yml file will run. The EC2 instance, acting as a self hosted runner will download the cd.yml file and 1. Pull the Docker Image from your Docker Hub account and repository, 2. Delete the Old Docker container running on the EC2 instance in the Docker you installed, 3. Run the new Docker image that was just pulled on the EC2 instance in the Docker you installed.
 
 25. On your EC2 instance stop the action runner. Type: 'cd ~' to get to the base directory.
@@ -81,7 +84,7 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 38. Restart nginx to apply the changes.  
 
-39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world".
+39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world". (DO NOT CLICK THE LINK IN AWS COPY AND PASTE IT INTO THE NEW TAB.)
 
 EXTRAS:
 At this point you can use your browser to reach your application (running on EC2) by using Amazon's lengthy IPV4 address. No one will remember that. What should happen is that you want to connect an easliy rememberable Domain Name (ie, lukavujasin.tech) to point to your EC2 instance automatically. Follow the directions here on how to do it: https://www.freecodecamp.org/news/how-to-connect-a-domain-to-a-website-hosted-on-aws-ec2/
