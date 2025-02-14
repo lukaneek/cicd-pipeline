@@ -4,7 +4,7 @@
 
 2. In Github, manually update and check in the read me file.
 
-3. On your file system, go to c:\code to clone the repository. Type: 'git clone <github https link>'. This will create a new folder in the c:\code directory with the repository name and the updated read me file. cd into that repository name.
+3. On your file system, go to c:\code to clone the repository. Type: 'git clone {github https link}'. This will create a new folder in the c:\code directory with the repository name and the updated read me file. cd into that repository name.
   
 4. Follow the following link to 1. create a Docker Hub (docker image repository) account and install Docker Desktop on your system (Both only needs to be done once) and 2. to create a simple node/express application and to check into your new repository.
    a. https://medium.com/@muhammadnaqeeb/dockerizing-a-node-js-and-express-js-app-9cb31cf9139e
@@ -15,7 +15,7 @@
 
 The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8fTUc
 
-7. Open VSCode, open the diretory where the new repository is (from the c:\code\<new repository>\) type, 'code .'
+7. Open VSCode, open the diretory where the new repository is (from the c:\code\{new repository}\) type, 'code .'
 
 8. In VSCode, in the base directory create a new folder called '.github/workflows'. Create a new file in that directory called: ci.yml
 
@@ -79,11 +79,11 @@ Note: When logging into the EC2, If any work needs to be done on the runner appl
 
 36. Edit the default nginx configuration file: 'sudo nano default'
 
-37. Navigate to the location section and enter the following: 'proxy_pass http://<ip address>:8080;' then save and exit file.  
+37. Navigate to the location section and enter the following: 'proxy_pass http://{ip address}:8080;' then save and exit file.  
 
 38. Restart nginx to apply the changes.  
 
-39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world". (DO NOT CLICK THE LINK IN AWS COPY AND PASTE IT INTO THE NEW TAB.)
+39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world". (DO NOT CLICK THE LINK IN AWS, COPY AND PASTE IT INTO THE NEW TAB.)
 
 EXTRAS:
 At this point you can use your browser to reach your application (running on EC2) by using Amazon's lengthy IPV4 address. No one will remember that. What should happen is that you want to connect an easliy rememberable Domain Name (ie, lukavujasin.tech) to point to your EC2 instance automatically. Follow the directions here on how to do it: https://www.freecodecamp.org/news/how-to-connect-a-domain-to-a-website-hosted-on-aws-ec2/
