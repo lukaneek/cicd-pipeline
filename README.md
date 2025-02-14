@@ -69,7 +69,7 @@ Note: When logging into the EC2, If any work needs to be done on the runner appl
 
 31. Get the docker container id by typing 'docker ps'.
 
-32. The following command will retrieve the private ip address of the docker container. "sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>". 
+32. The following command will retrieve the private ip address of the docker container. "sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {docker container id}". 
 
 33. The output should be your private docker container ip address. 
 
