@@ -50,7 +50,7 @@ The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8f
 
 23. Before when you copy and past commands from the Runner Configure section, to get the first command to work you have to first execute 'export RUNNER_ALLOW_RUNASROOT="1"' command on the EC2 instance. Then copy the first Configure section command and add 'RUNNER_ALLOW_RUNASROOT="1"' to the start of the command. Run the command. Finally, you can execute the './run.sh' command to start the runner application. This will allow you see the output running when you check code into Github. Run './svc.sh' to run the runner application as a service so whenever the server restarts the runner application will restart.
 
-24. In order to have the runner application continue to run, set up the runner service.  first install the service with user as root by typing './svc.sh install root'.  Next run the service by typing './svc.sh start'.
+24. In order to have the runner application continue to run, set up the runner service.  First, install the service with user as root by typing './svc.sh install root'.  Next run the service by typing './svc.sh start'.
 Note: When logging into the EC2, If any work needs to be done on the runner application you must be a super user and to become a super user type 'sudo su'.
 
 24. In VSCode, create the cd.yml file. When code is checked in to GitHub the ci.yml file will run and after it is complete this cd.yml file will run. The EC2 instance, acting as a self hosted runner will download the cd.yml file and 1. Pull the Docker Image from your Docker Hub account and repository, 2. Delete the Old Docker container running on the EC2 instance in the Docker you installed, 3. Run the new Docker image that was just pulled on the EC2 instance in the Docker you installed.
@@ -69,8 +69,7 @@ Note: When logging into the EC2, If any work needs to be done on the runner appl
 
 31. Get the docker container id by typing 'docker ps'.
 
-32. The following command will retrieve the private ip address of the docker container. 'sudo docker inspect -f \
-'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>'. 
+32. The following command will retrieve the private ip address of the docker container. "sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container id>". 
 
 33. The output should be your private docker container ip address. 
 
