@@ -15,7 +15,7 @@
 
 The following steps are with this video https://www.youtube.com/watch?v=BDGTIM8fTUc
 
-7. Open VSCode, open the diretory where the new repository is (from the c:\code\ <new repository>\) type, 'code .'
+7. Open VSCode, open the diretory where the new repository is (from the c:\\code\\{new repository}\\) type, 'code .'
 
 8. In VSCode, in the base directory create a new folder called '.github/workflows'. Create a new file in that directory called: ci.yml
 
