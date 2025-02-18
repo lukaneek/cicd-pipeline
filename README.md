@@ -79,9 +79,9 @@ Note: When logging into the EC2, If any work needs to be done on the runner appl
 
 36. Edit the default nginx configuration file: 'sudo nano default'
 
-37. Navigate to the location section and enter the following: 'proxy_pass http://{ip address}:8080;' then save and exit file.  
+37. Navigate to the location section and enter the following: 'proxy_pass http://{ip address}:8080/;' then save and exit file.  
 
-38. Restart nginx to apply the changes. systemctl restart nginx 
+38. Restart nginx to apply the changes. To restart: sudo systemctl restart nginx 
 
 39. Open a new tab and enter your public ipv4 url address of your EC2 instance.  The browser should now show "hello world". (DO NOT CLICK THE LINK IN AWS, COPY AND PASTE IT INTO THE NEW TAB.)
 
