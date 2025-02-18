@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res) {
-    return res.send("Luka Rocks serveffr");
+    return res.send("Lukas Other Application");
 });
 
 app.listen(8080, function(){
