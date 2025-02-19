@@ -19,4 +19,4 @@ EXPOSE 80
 
 #CMD ["nginx", "-g", "daemon off;"]
 
-CMD ["/app/start.sh"]
+CMD ["/usr/bin/bash", "/app/start.sh"]
